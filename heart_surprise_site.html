@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#170b19">
+<title>A Little Surprise For You 💗</title>
+<style>
+:root{--pink:#ff8fbd;--rose:#ff477e;--cream:#fff3f7;--bg:#170b19}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at top,#4a1838 0,#170b19 48%,#09070c 100%);color:var(--cream);font-family:Georgia,'Times New Roman',serif;text-align:center;overflow-x:hidden}
+main{max-width:760px;margin:auto;padding:24px 17px 70px;position:relative;z-index:1}
+.eyebrow{font:12px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#ffc2d9}
+h1{font-size:clamp(38px,10vw,70px);line-height:1.05;margin:18px 0;color:#fff1f7;text-shadow:0 0 28px #ff477e66}
+h2{font-size:clamp(27px,7vw,42px);margin:0 0 15px}
+p{line-height:1.8;font-size:17px}
+.hero{min-height:92svh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.heart{font-size:52px;filter:drop-shadow(0 0 18px #ff477e);animation:pulse 1.5s infinite}
+@keyframes pulse{50%{transform:scale(1.13)}}
+button{border:0;border-radius:999px;padding:14px 22px;background:linear-gradient(120deg,#ff8fbd,#ff477e);color:#250917;font-weight:bold;font-size:15px;box-shadow:0 8px 28px #ff477e35;cursor:pointer;margin:8px}
+button:active{transform:scale(.98)}
+.panel{background:#ffffff0b;border:1px solid #ffc2d92b;border-radius:24px;padding:25px 20px;margin:22px 0;box-shadow:0 15px 50px #0002;backdrop-filter:blur(6px)}
+.hidden{display:none}
+.letter{white-space:pre-line;text-align:left;background:#fff8fb;color:#4a1838;border-radius:17px;padding:22px;line-height:1.9;font-size:17px}
+.mini{font:13px Arial,sans-serif;color:#e9bdce}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.photo{min-height:130px;border:1px dashed #ff9fc4;border-radius:16px;display:flex;align-items:center;justify-content:center;padding:10px;color:#ffd9e7;background:#ffffff08;font:14px Arial,sans-serif;overflow:hidden}
+.photo img{width:100%;height:180px;object-fit:cover;border-radius:12px}
+.cake{font-size:75px;animation:bob 2s infinite ease-in-out}
+@keyframes bob{50%{transform:translateY(-8px)}}
+footer{font:12px Arial,sans-serif;color:#d7a9bd;margin-top:35px}
+.float{position:fixed;bottom:-40px;z-index:0;pointer-events:none;animation:rise linear forwards;opacity:.7}
+@keyframes rise{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+input[type=file]{display:none}
+a{color:#ffd2e4}
+@media(min-width:600px){main{padding-top:35px}.panel{padding:32px}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+<div class="eyebrow">a tiny universe made for you</div>
+<div class="heart">♡</div>
+<h1>Hey, <span id="herHero">My Favourite Person</span>…</h1>
+<p>I made a little place on the internet, just for you. 💗</p>
+<button onclick="openSurprise()">Open your surprise ✨</button>
+<div class="mini">P.S. headphones recommended 🎧</div>
+</section>
+
+<section id="surprise" class="panel hidden">
+<div class="eyebrow">just one thing i wanted to say</div>
+<h2>You're my kind of magic 💖</h2>
+<p>Out of all the ordinary days, you somehow became one of my favourite reasons to smile.</p>
+<button onclick="showLetter()">Open your letter 💌</button>
+<div id="letterWrap" class="hidden" style="margin-top:18px">
+<div class="letter" id="letterText">To my favourite person,
+
+I may not always find the perfect words, but I hope you always remember this: your presence makes ordinary moments feel special.
+
+On your birthday and every day after, I wish you peaceful days, loud laughter, beautiful dreams, and a thousand reasons to smile.
+
+I’m really glad this world has you in it. Happy Birthday! ❤️
+
+— Someone who cares about you</div>
+</div>
+</section>
+
+<section class="panel">
+<div class="eyebrow">little memories, big feelings</div>
+<h2>Our memory corner 📸</h2>
+<p class="mini">You can add photos before publishing. Choose them below; replace the sample slots with your favourite moments.</p>
+<div class="gallery" id="gallery">
+<div class="photo">Your favourite photo ✨</div><div class="photo">A silly memory 🫶</div><div class="photo">A moment you love 🌷</div><div class="photo">One more memory 💗</div>
+</div>
+<label for="photos"><button type="button">Choose photos on this phone 📷</button></label>
+<input id="photos" type="file" accept="image/*" multiple>
+<p class="mini">Important: photos selected here are only a preview on this phone. To show them to her online, embed them in the site before publishing.</p>
+</section>
+
+<section class="panel">
+<div class="eyebrow">your special day</div>
+<div class="cake">🎂</div>
+<h2>Happy Birthday, <span id="herName">My Favourite Person</span>!</h2>
+<p>May this new chapter bring you the kind of happiness you give to the people around you. 🌸</p>
+<p style="font-size:25px">నీ నవ్వు ఎప్పుడూ ఇలాగే ఉండాలి ❤️</p>
+<p class="mini">Nee navvu eppudoo ilaage undaali — may your smile always stay this way.</p>
+<button onclick="confettiHearts()">Make a wish 🌟</button>
+<div id="wish" class="hidden"><p>Wish granted? Maybe not by magic… but I’ll always be cheering for your happiness. 💗</p></div>
+</section>
+<footer>Made with care, just for you ♡<br>Personalise the names and letter before sharing.</footer>
+</main>
+<script>
+/* PERSONALISE THESE THREE LINES BEFORE PUBLISHING */
+const HER_NAME = "Her Name";
+const YOUR_NAME = "Your Name";
+const BIRTHDAY_MESSAGE = ""; // Optional: replace the letter above with your own words.
+document.title = "A little surprise for " + HER_NAME + " 💗";
+document.getElementById("herHero").textContent = HER_NAME;
+document.getElementById("herName").textContent = HER_NAME;
+document.getElementById("letterText").textContent =
+"To my favourite person, " + HER_NAME + ",\n\n" +
+"I may not always find the perfect words, but I hope you always remember this: your presence makes ordinary moments feel special.\n\n" +
+"On your birthday and every day after, I wish you peaceful days, loud laughter, beautiful dreams, and a thousand reasons to smile.\n\n" +
+"I’m really glad this world has you in it. Happy Birthday! ❤️\n\n— " + YOUR_NAME;
+function openSurprise(){document.getElementById("surprise").classList.remove("hidden");document.getElementById("surprise").scrollIntoView({behavior:"smooth"});confettiHearts()}
+function showLetter(){document.getElementById("letterWrap").classList.remove("hidden")}
+function confettiHearts(){document.getElementById("wish").classList.remove("hidden");for(let i=0;i<22;i++){let e=document.createElement("div");e.className="float";e.textContent=["💗","💕","♡","✨","🌸"][Math.floor(Math.random()*5)];e.style.left=Math.random()*100+"vw";e.style.animationDuration=(4+Math.random()*4)+"s";e.style.fontSize=(16+Math.random()*24)+"px";document.body.appendChild(e);setTimeout(()=>e.remove(),8500)}}
+document.getElementById("photos").addEventListener("change",e=>{const files=[...e.target.files].slice(0,8);const g=document.getElementById("gallery");g.innerHTML="";files.forEach(f=>{const url=URL.createObjectURL(f);const d=document.createElement("div");d.className="photo";const im=document.createElement("img");im.src=url;im.alt="Selected memory";d.appendChild(im);g.appendChild(d)})});
+</script>
+</body>
+</html>
